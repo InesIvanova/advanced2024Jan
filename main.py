@@ -1,6 +1,5 @@
-import os
+from pyfiglet import figlet_format
 
-path = os.path.join("file_handling", "resources", "just_created.txt")
 
-with open(path, "a") as file:
-    file.write("Some content")
+text = figlet_format("Python")
+print(text)
