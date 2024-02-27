@@ -7,8 +7,18 @@ class Car:
     def get_info(self):
         return f"This is {self.name} {self.model} with engine {self.engine}"
 
+    def change_name(self, new_name):
+        if new_name.strip() == "":
+            raise ValueError("Name can not be empty")
+        self.name = new_name
 
-car = Car("Kia", "Rio", "1.3L B3 I4")
-car2 = Car("BMW", "4", "1.6L")
-print(car.get_info())
-print(car2.get_info())
+    def __str__(self):
+        return f"This is a car with name {self.name}"
+
+    def __repr__(self):
+        return f"This is a car with name {self.name}"
+
+
+
+car = Car("Test", "test", "1.6")
+print(car)
