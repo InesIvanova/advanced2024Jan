@@ -1,22 +1,17 @@
-class Car:
-    def __init__(self, max_speed: int):
-        self.max_speed = max_speed
-
-    def drive(self):
-        print('driving max speed ' + str(self.max_speed))
-
-    @property
-    def max_speed(self):
-        return self.__max_speed
-
-    @max_speed.setter
-    def max_speed(self, value):
-        if value > 447:
-            value = 447
-        self.__max_speed = value
+def sum_nums(a, b):
+    return a + b
 
 
-red_car = Car(200)
-red_car.drive()             # driving max speed 200
-red_car.max_speed = 512     # changes the speed to 447
-red_car.drive()
+def divide_nums(a, b):
+    return a/b
+
+
+sign = input()
+
+
+sign_mapper = {
+    "+": lambda x, y: x +y,
+    "/": divide_nums
+}
+
+print(sign_mapper[sign](3, 5))
