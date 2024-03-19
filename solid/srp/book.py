@@ -40,6 +40,17 @@ class Library:
 
         return books
 
+    def get_book_by_title(self, title):
+        try:
+            next(filter(lambda x: x.title == title, self.books))
+        except StopIteration:
+            return "No such record"
+        try:
+            filter(lambda x: x.title == title, self.books)
+            [b for b in self.books if b.title == title][0]
+        except IndexError:
+            return None
+
 
 
 # book = Book("1", "a")
@@ -66,13 +77,4 @@ if __name__ == "__main__":
 
     lib = Library([book, book2, book3])
 
-    print(lib.get_books_by_title("1"))
-    print(lib.get_books_by_author("a"))
-    book4 = Book("4", "c")
-
-    lib.add_book(book4)
-
-    print(lib.get_books_by_title("4"))
-
-    print(lib.get_books_by_author("5"))
-    print(lib.get_books_by_title("non"))
+    print(lib.get_book_by_title("1"))

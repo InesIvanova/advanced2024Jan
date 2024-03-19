@@ -1,17 +1,15 @@
-def sum_nums(a, b):
-    return a + b
+def concat(some_str):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            result = func(*args, **kwargs)
+            return result + some_str
+        return wrapper
+    return decorator
 
 
-def divide_nums(a, b):
-    return a/b
+@concat("!")
+def say_hi(name):
+    return name
 
 
-sign = input()
-
-
-sign_mapper = {
-    "+": lambda x, y: x +y,
-    "/": divide_nums
-}
-
-print(sign_mapper[sign](3, 5))
+print(say_hi("Test"))

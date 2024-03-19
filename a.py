@@ -1,20 +1,16 @@
+def uppercase(function):
+    def wrapper(*args, **kwargs):
+        result = function(*args, **kwargs)
+        return result.upper()
+    return wrapper
+
+
+
 class Person:
-    def __init__(self, name, age=-1):
-        self.name = name
-        self.age = age
-
-    @property
-    def age(self):
-        return self.__age
-
-    @age.setter
-    def age(self, value):
-        if value <= 0:
-            raise Exception("Age must be greater than zero")
-        self.__age = value
+    @uppercase
+    def say_hi(self):
+        return "hi"
 
 
-
-
-p = Person("Test")
-print(p)
+p = Person()
+print(p.say_hi())
